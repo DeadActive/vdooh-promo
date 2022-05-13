@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "baseUrl": "./",
+        "moduleResolution": "node",
+        "paths": {
+            "@services/*": ["./src/middleware/services/*"],
+            "@dal/*": ["./src/middleware/DAL/*"],
+            "@cmp/*": ["./src/components/*"],
+            "@mdw/*": ["./src/middleware/*"],
+            "@mixin/*": ["./src/mixins/*"],
+            "@/*": ["./src/*"]
+        },
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    }
+}
