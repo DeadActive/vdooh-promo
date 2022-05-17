@@ -4,7 +4,7 @@ export default function (router, title) {
     router.beforeEach((to, from, next) => {
         if (to.matched.some((record) => record.meta.requiresAuth)) {
             if (!store.state.auth.signedIn) {
-                router.push({ name: "login" });
+                router.push({ name: "login", query: { from: to.path } });
             } else {
                 if (
                     to.matched.some((record) => record.meta.adminOnly) &&

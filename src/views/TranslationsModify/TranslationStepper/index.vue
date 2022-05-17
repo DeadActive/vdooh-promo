@@ -40,7 +40,7 @@
                     </v-hover>
 
                     <v-divider
-                        v-if="step.step !== 2"
+                        v-if="step.step !== steppers[steppers.length - 1].step"
                         :key="`${index}-stepper`"
                     />
                 </template>
@@ -102,10 +102,6 @@
                                 <v-spacer />
                                 <v-btn
                                     v-if="stepper === 2"
-                                    :disabled="
-                                        canNextStep &&
-                                        !translation.addedSurfaces.length
-                                    "
                                     color="primary"
                                     type="submit"
                                     width="160"
@@ -117,7 +113,6 @@
                                 >
                                 <v-btn
                                     v-else-if="step.step !== 4"
-                                    :disabled="!canNextStep"
                                     color="primary"
                                     type="submit"
                                     width="160"
@@ -141,7 +136,9 @@ import axios from "axios";
 import AlertDialog from "../../../components/AlertDialog.vue";
 import ModifyStep23 from "./Step23";
 import ModifyStep1 from "./Step1";
-import ModifyStep2 from "./Step4";
+import ModifyStep2 from "./Step2";
+import ModifyStep3 from "./Step3";
+import ModifyStep4 from "./Step4";
 import moment from "moment";
 import TranslationActions from "../TranslationActions";
 
@@ -153,6 +150,8 @@ export default {
         ModifyStep23,
         ModifyStep1,
         ModifyStep2,
+        ModifyStep3,
+        ModifyStep4,
         TranslationActions,
     },
 

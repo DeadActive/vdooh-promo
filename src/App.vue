@@ -21,6 +21,8 @@ export default {
             let currentLayout = "empty";
             const { meta } = this.$route;
 
+            if (meta.layout) return meta.layout + "-layout";
+
             if (meta && meta.requiresAuth) {
                 currentLayout = "default";
             }

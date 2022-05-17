@@ -6,17 +6,17 @@ export default {
             headers: { "Content-Type": "application/json" },
         });
     },
-    uploadphoto(file) {
+    uploadphoto(file, name) {
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append("file", file, name);
 
         return client.post("uploadphoto/", formData, {
             headers: { "Content-Type": "multipart/form-data" },
         });
     },
-    uploadgame(file) {
+    uploadgame(file, name) {
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append("file", file, name);
 
         return client.post("uploadgame/", formData, {
             headers: { "Content-Type": "multipart/form-data" },

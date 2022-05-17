@@ -20,6 +20,21 @@ const routes = [
         },
     },
     {
+        path: "/game",
+        name: "game",
+        component: () => import("../views/TranslationsModify/game.vue"),
+        meta: {
+            title: { en: "", ru: "Создание рекламной кампании" },
+            requiresAuth: true,
+            header: {
+                link: "/translations/1",
+                withNotification: true,
+                isBack: true,
+            },
+            layout: "default",
+        },
+    },
+    {
         path: "/login",
         name: "login",
         component: () => import("../views/Login"),

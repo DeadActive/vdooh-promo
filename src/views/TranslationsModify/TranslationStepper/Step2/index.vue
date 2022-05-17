@@ -1,29 +1,8 @@
 <template>
     <v-layout column>
-        <v-flex class="mb-4 px-4">
-            <step-form
-                :check-surfaces="checkSurfaces"
-                :is-guaranteed="isGuaranteed"
-                :translation="translation"
-                :is-new="isNew"
-                :rules="rules"
-            />
-        </v-flex>
-        <v-flex>
-            <surface-map
-                :return-single-surfaces="returnSingleSurfaces"
-                :selected-surfaces="selectedSurfaces"
-                :surfaces-loaded="surfacesLoaded"
-                :added-surfaces="addedSurfaces"
-                :is-guaranteed="isGuaranteed"
-                :surfaces="surfaces"
-                :is-new="isNew"
-                @remove-added-surfaces="removeAddedSurfaces"
-                @clear-surfaces="clearSurfaces"
-                @add-surface="addSurface"
-                @select-all="selectAll"
-            />
-        </v-flex>
+        <v-container>
+            <v-img src="/img/step/2.png"></v-img>
+        </v-container>
     </v-layout>
 </template>
 

@@ -9,6 +9,7 @@ export default {
         hasMoney: true,
         isReadonly: false,
         requisitesOk: true,
+        user: {},
     },
     getters: {
         signedIn: (state) => state.signedIn,
@@ -17,6 +18,7 @@ export default {
     mutations: {
         SET_SIGNED_IN: (state, payload) => (state.signedIn = payload),
         SET_USERNAME: (state, payload) => (state.username = payload),
+        SET_USER: (state, payload) => (state.user = payload),
     },
     actions: {
         async login({ commit }, payload) {
@@ -25,7 +27,7 @@ export default {
             await api.regform(payload);
 
             commit("SET_SIGNED_IN", true);
-            commit("SET_USERNAME", payload.login);
+            commit("SET_USER", payload);
         },
         setUsername({ commit }, payload) {
             commit("SET_USERNAME", payload);

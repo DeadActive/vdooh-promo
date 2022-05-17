@@ -6,7 +6,6 @@
             key="loginForm"
             class="login"
             ref="form"
-            lazy-validation
             @submit.prevent="login"
         >
             <v-card-title class="px-0 py-0">
@@ -260,7 +259,11 @@ export default {
                     company: this.company,
                 });
 
-                this.$router.push("/");
+                if (this.$route.query?.from) {
+                    this.$router.push(this.$route.query?.from);
+                } else {
+                    this.$router.push("/");
+                }
             } catch (e) {
                 this.$emit("set-error", e.text);
             } finally {

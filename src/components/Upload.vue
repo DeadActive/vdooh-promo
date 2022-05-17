@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import api from "../api/api";
 
 export default {
@@ -49,6 +50,9 @@ export default {
             error: "",
             active: false,
         };
+    },
+    computed: {
+        ...mapState("auth", ["user"]),
     },
     methods: {
         openDialog() {
@@ -72,7 +76,23 @@ export default {
                 this.error = e.message;
             }
 
-            await api.uploadphoto(this.file);
+            const ext = this.file.name.split(".").pop();
+            const name = `${this.user.email}.${ext}`;
+
+            if (this.$route.path === "/game")
+                await api.uploadgame(this.file, name);
+            else await api.uploadphoto(this.file, name);
+
+            setTimeout(() => {
+                if (this.$route.path === "/game")
+                    this.$router.push({
+                        path: "/login",
+                        query: { from: "/game" },
+                    });
+                else {
+                    this.$router.push("/login");
+                }
+            }, 10000);
 
             this.active = false;
         },
@@ -91,7 +111,25 @@ export default {
                 this.error = e.message;
             }
 
-            await api.uploadphoto(this.file);
+            const ext = this.file.name.split(".").pop();
+            const name = `${this.user.email}.${ext}`;
+
+            if (this.$route.path === "/game")
+                await api.uploadgame(this.file, name);
+            else await api.uploadphoto(this.file, name);
+
+            console.log(this.$route);
+
+            setTimeout(() => {
+                if (this.$route.path === "/game")
+                    this.$router.push({
+                        path: "/login",
+                        query: { from: "/game" },
+                    });
+                else {
+                    this.$router.push("/login");
+                }
+            }, 10000);
         },
     },
 };

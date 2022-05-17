@@ -1,24 +1,8 @@
 <template>
     <v-layout column>
-        <span class="mb-5 headline">Период</span>
-        <v-divider />
-        <period-part
-            :translation="translation"
-            :rules="rules"
-            class="mt-6"
-            @time-outed-surfaces="$emit('time-outed-surfaces')"
-        />
-
-        <span class="mb-2 headline">Оплата</span>
-        <v-divider />
-
-        <payment-part
-            :translation-is="translationIs"
-            :floor-loading="floorLoading"
-            :translation="translation"
-            :settings="settings"
-            :rules="rules"
-        />
+        <v-container>
+            <v-img src="/img/step/3.png"></v-img>
+        </v-container>
     </v-layout>
 </template>
 

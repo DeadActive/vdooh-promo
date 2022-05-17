@@ -80,6 +80,20 @@ export default {
                     wasVisited: true,
                     valid: true,
                 },
+                {
+                    step: 2,
+                    title: "Выбор поверхностей",
+                    condition: () => true,
+                    wasVisited: false,
+                    valid: true,
+                },
+                {
+                    step: 3,
+                    title: "Период и оплата",
+                    condition: () => true,
+                    wasVisited: false,
+                    valid: true,
+                },
             ];
 
             steppers.push({
